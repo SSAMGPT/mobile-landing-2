@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>모바일 랜딩 페이지</title>
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=14">
+</head>
+<body>
+    <div id="app">
+        <!-- Hero Section -->
+        <header class="hero">
+            <h1>부모님 상조, 아직이라면?<br>시작은 월 1,000원</h1>
+            <!-- 이미지와 3D 오브젝트를 묶어서 위치 고정 -->
+            <div style="position: relative; width: 100%; max-width: 400px; margin: 0 auto;">
+                <img src="images/hero-logo.png" alt="월 1,000원 혜택" class="hero-image" style="width: 100%; margin-top: 0;">
+                <!-- 3D Objects (초기 기준점: 이미지 정중앙) -->
+                <img src="images/obj1.png" id="obj1" class="floating-obj" alt="3D Object 1" style="top: 50%; left: 50%; margin-left: -50px;">
+                <img src="images/obj2.png" id="obj2" class="floating-obj" alt="3D Object 2" style="top: 50%; left: 50%; margin-left: -50px;">
+            </div>
+            
+            <!-- 소노 멤버십 마퀴 영역 -->
+            <div class="membership-content" style="margin-top: -15px; width: calc(100% + 4rem); margin-left: -2rem; margin-right: -2rem;">
+                <div class="marquee-container">
+                    <!-- 마퀴 한 줄로 통합 (왼쪽으로 이동) -->
+                    <div class="marquee-row">
+                        <div class="marquee-content left">
+                            <span class="marquee-badge black-pill">소노호텔 & 리조트<img src="assets/Create_hotel_icons_style_202607150134 1.png" class="badge-overlay-icon" alt=""></span>
+                            <span class="marquee-badge">크루즈전환<img src="assets/cruise_ship_icon_style_202607150131 1.png" class="badge-overlay-icon" alt=""></span>
+                            <span class="marquee-badge blue-pill">오션월드<img src="assets/Create_beach_icon_style_202607150134 1.png" class="badge-overlay-icon" alt=""></span>
+                            <span class="marquee-badge black-outline">여행전환<img src="assets/Create_an_airplane_icon._202607150136 1.png" class="badge-overlay-icon" alt=""></span>
+                            <span class="marquee-badge blue-pill">골프<img src="assets/Create_a_golf_club_icon._202607150134 1.png" class="badge-overlay-icon" alt=""></span>
+                            <span class="marquee-badge black-outline">비발디파크<img src="assets/Amusement_park_icon_202607150134 1.png" class="badge-overlay-icon" alt=""></span>
+                            <span class="marquee-badge blue-pill">상조전환<img src="assets/Change_to_white_chrysanthemums_202607150134 1.png" class="badge-overlay-icon" alt=""></span>
+                            <span class="marquee-badge">소노아임레디몰<img src="assets/gift_box_icon_202607150134 1.png" class="badge-overlay-icon" alt=""></span>
+                            <span class="marquee-badge black-pill">레디캐시<img src="assets/Create_a_dollar_coin_icon._202607150134 1.png" class="badge-overlay-icon" alt=""></span>
+                        </div>
+                        <div class="marquee-content left" aria-hidden="true">
+                            <span class="marquee-badge black-pill">소노호텔 & 리조트<img src="assets/Create_hotel_icons_style_202607150134 1.png" class="badge-overlay-icon" alt=""></span>
+                            <span class="marquee-badge">크루즈전환<img src="assets/cruise_ship_icon_style_202607150131 1.png" class="badge-overlay-icon" alt=""></span>
+                            <span class="marquee-badge blue-pill">오션월드<img src="assets/Create_beach_icon_style_202607150134 1.png" class="badge-overlay-icon" alt=""></span>
+                            <span class="marquee-badge black-outline">여행전환<img src="assets/Create_an_airplane_icon._202607150136 1.png" class="badge-overlay-icon" alt=""></span>
+                            <span class="marquee-badge blue-pill">골프<img src="assets/Create_a_golf_club_icon._202607150134 1.png" class="badge-overlay-icon" alt=""></span>
+                            <span class="marquee-badge black-outline">비발디파크<img src="assets/Amusement_park_icon_202607150134 1.png" class="badge-overlay-icon" alt=""></span>
+                            <span class="marquee-badge blue-pill">상조전환<img src="assets/Change_to_white_chrysanthemums_202607150134 1.png" class="badge-overlay-icon" alt=""></span>
+                            <span class="marquee-badge">소노아임레디몰<img src="assets/gift_box_icon_202607150134 1.png" class="badge-overlay-icon" alt=""></span>
+                            <span class="marquee-badge black-pill">레디캐시<img src="assets/Create_a_dollar_coin_icon._202607150134 1.png" class="badge-overlay-icon" alt=""></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 하단 수직 버튼 영역 -->
+            <div class="cta-buttons-vertical">
+                <button class="btn btn-primary" id="call-btn">
+                    <div class="tooltip-bubble">3,000원 프로모션 진행중</div>
+                    AI 소복이에게 전화받기
+                </button>
+                <button class="btn btn-secondary">시작하기</button>
+            </div>
+        </header>
+
+    <!-- 안내 섹션 -->
+    <section class="info-section">
+        <div class="content-wrapper">
+            <h2 class="section-title">장례는 갑작스럽고,<br>우리는 준비되어 있지 않습니다.</h2>
+            <p class="section-desc">
+                장례에서 가장 힘들었던 순간, 가장 많은 응답은<br>
+                <strong>'절차와 조언의 부재(35.9%)'</strong>였습니다.<br>
+                슬픔 속에서도 무엇을 먼저 해야 할지 몰라<br>
+                막막했다고 합니다.
+            </p>
+            
+            <!-- 블랙 프레임 -->
+            <div class="black-frame">
+                <h3 class="chart-title">장례에서 가장 힘들었던 순간</h3>
+                <div class="chart-container" id="activity-chart">
+                    <!-- SVG 링 영역 -->
+                    <div class="rings-wrapper" id="rings-wrapper"></div>
+                    <!-- 우측 텍스트(범례) 영역 -->
+                    <div class="legend-wrapper" id="legend-wrapper"></div>
+                </div>
+                <!-- 4, 5위 각주 영역 -->
+                <div class="chart-footnotes" id="chart-footnotes"></div>
+            </div>
+
+
+            <!-- 화이트 프레임 -->
+            <div class="white-frame">
+                <div class="wf-text-content">
+                    <p class="wf-sub-text">경험자 재이용 의향 비율</p>
+                    <h3 class="wf-main-title">"다시 상조서비스를<br>이용할 의향이 있다"</h3>
+                </div>
+                <!-- 우측 단일 도넛 차트 -->
+                <div class="wf-chart-content">
+                    <svg class="single-ring-svg" viewBox="0 0 100 100">
+                        <circle class="single-ring-track" cx="50" cy="50" r="40" fill="none" stroke-width="12"></circle>
+                        <circle class="single-ring-progress" cx="50" cy="50" r="40" fill="none" stroke-width="12" stroke-linecap="round"></circle>
+                    </svg>
+                    <div class="single-ring-text">
+                        <span class="srt-value">74.6</span><span class="srt-unit">%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 전체 차트 외부 출처 표기 -->
+            <p class="source-footnote">출처: 상조보증공제조합 소비자인식조사 (2024)</p>
+
+            <!-- 하단 맺음말 영역 -->
+            <div class="closing-wrapper">
+                <div class="closing-text">
+                    <p>가장 어려운 순간,<br>누군가 대신 책임져주는 준비<br><strong>그게 상조가 필요한 이유입니다.</strong></p>
+                </div>
+                <img src="images/Person_pointing_with_hands_202607162155 1.png" alt="" class="closing-image" id="adjustable-image">
+            </div>
+
+            <!-- 다음 섹션 유도 텍스트 -->
+            <p class="next-section-teaser">그래서 다들 천원상조 이렇게 시작했어요.</p>
+            <div class="scroll-arrows">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 하단 새 콘텐츠 프레임 -->
+    <section class="bottom-section">
+        <!-- 배경 이미지 (프레임보다 아래쪽 레이어) -->
+        <img src="images/Woman_pointing_to_right_202607162324 1.png" alt="" class="bottom-bg-image" id="bottom-adjustable-image">
+        
+        <!-- 손가락이 가리키는 말풍선 (타이틀 포함) -->
+        <div class="finger-speech-bubble">
+            <h3 class="chart-title" style="margin-bottom: 0;">1,000원 상조<br class="mobile-break"> 가입 이유 3가지</h3>
+        </div>
+
+        <div class="bottom-square-frame">
+            <!-- 별점 애니메이션 (숨김처리) -->
+            <div class="star-rating-wrapper" id="star-rating-wrapper" style="display:none;">
+                <div class="rating__stars">
+                    <!-- 별 1 -->
+                    <svg class="rating__star" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+                        <g transform="translate(16,16)"><circle class="rating__star-ring" fill="none" stroke="#000" stroke-width="16" r="8" transform="scale(0)" /></g>
+                        <g stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g transform="translate(16,16) rotate(180)"><polygon class="rating__star-stroke" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="none" /><polygon class="rating__star-fill" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="#000" /></g><g transform="translate(16,16)" stroke-dasharray="12 12" stroke-dashoffset="12"><polyline class="rating__star-line" transform="rotate(0)" points="0 4,0 16" /><polyline class="rating__star-line" transform="rotate(72)" points="0 4,0 16" /><polyline class="rating__star-line" transform="rotate(144)" points="0 4,0 16" /><polyline class="rating__star-line" transform="rotate(216)" points="0 4,0 16" /><polyline class="rating__star-line" transform="rotate(288)" points="0 4,0 16" /></g></g>
+                    </svg>
+                    <svg class="rating__star delay-2" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(16,16)"><circle class="rating__star-ring" fill="none" stroke="#000" stroke-width="16" r="8" transform="scale(0)" /></g><g stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g transform="translate(16,16) rotate(180)"><polygon class="rating__star-stroke" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="none" /><polygon class="rating__star-fill" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="#000" /></g><g transform="translate(16,16)" stroke-dasharray="12 12" stroke-dashoffset="12"><polyline class="rating__star-line" transform="rotate(0)" points="0 4,0 16" /><polyline class="rating__star-line" transform="rotate(72)" points="0 4,0 16" /><polyline class="rating__star-line" transform="rotate(144)" points="0 4,0 16" /><polyline class="rating__star-line" transform="rotate(216)" points="0 4,0 16" /><polyline class="rating__star-line" transform="rotate(288)" points="0 4,0 16" /></g></g></svg>
+                    <svg class="rating__star delay-3" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(16,16)"><circle class="rating__star-ring" fill="none" stroke="#000" stroke-width="16" r="8" transform="scale(0)" /></g><g stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g transform="translate(16,16) rotate(180)"><polygon class="rating__star-stroke" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="none" /><polygon class="rating__star-fill" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="#000" /></g><g transform="translate(16,16)" stroke-dasharray="12 12" stroke-dashoffset="12"><polyline class="rating__star-line" transform="rotate(0)" points="0 4,0 16" /><polyline class="rating__star-line" transform="rotate(72)" points="0 4,0 16" /><polyline class="rating__star-line" transform="rotate(144)" points="0 4,0 16" /><polyline class="rating__star-line" transform="rotate(216)" points="0 4,0 16" /><polyline class="rating__star-line" transform="rotate(288)" points="0 4,0 16" /></g></g></svg>
+                    <svg class="rating__star delay-4" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(16,16)"><circle class="rating__star-ring" fill="none" stroke="#000" stroke-width="16" r="8" transform="scale(0)" /></g><g stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g transform="translate(16,16) rotate(180)"><polygon class="rating__star-stroke" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="none" /><polygon class="rating__star-fill" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="#000" /></g><g transform="translate(16,16)" stroke-dasharray="12 12" stroke-dashoffset="12"><polyline class="rating__star-line" transform="rotate(0)" points="0 4,0 16" /><polyline class="rating__star-line" transform="rotate(72)" points="0 4,0 16" /><polyline class="rating__star-line" transform="rotate(144)" points="0 4,0 16" /><polyline class="rating__star-line" transform="rotate(216)" points="0 4,0 16" /><polyline class="rating__star-line" transform="rotate(288)" points="0 4,0 16" /></g></g></svg>
+                    <svg class="rating__star delay-5" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><g transform="translate(16,16)"><circle class="rating__star-ring" fill="none" stroke="#000" stroke-width="16" r="8" transform="scale(0)" /></g><g stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g transform="translate(16,16) rotate(180)"><polygon class="rating__star-stroke" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="none" /><polygon class="rating__star-fill" points="0,15 4.41,6.07 14.27,4.64 7.13,-2.32 8.82,-12.14 0,-7.5 -8.82,-12.14 -7.13,-2.32 -14.27,4.64 -4.41,6.07" fill="#000" /></g><g transform="translate(16,16)" stroke-dasharray="12 12" stroke-dashoffset="12"><polyline class="rating__star-line" transform="rotate(0)" points="0 4,0 16" /><polyline class="rating__star-line" transform="rotate(72)" points="0 4,0 16" /><polyline class="rating__star-line" transform="rotate(144)" points="0 4,0 16" /><polyline class="rating__star-line" transform="rotate(216)" points="0 4,0 16" /><polyline class="rating__star-line" transform="rotate(288)" points="0 4,0 16" /></g></g></svg>
+                </div>
+            </div>
+            <!-- 프레임 내부 내용이 들어갈 공간 -->
+            <div class="frame-content">
+                <!-- 왼쪽: 텍스트 영역 -->
+                <div class="frame-text-area">
+                    <div class="frame-number-badge">1</div>
+                    <h3 class="frame-title">월 1,000원의 시작</h3>
+                </div>
+                <!-- 오른쪽: 이미지 (프레임 위로 삐져나옴) -->
+                <div class="frame-image-area">
+                    <img
+                        src="images/정사각형_프레임에_맞게_수정해줘._202607170015 2.png"
+                        alt="천원상조 캐릭터"
+                        class="frame-char-img"
+                    >
+                </div>
+            </div>
+    </section>
+
+    <!-- 팝업 모달 양식 -->
+    <div id="form-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close-btn">&times;</button>
+            <div class="modal-character-wrapper">
+                <img src="images/form-character.png" alt="Character" class="modal-character">
+            </div>
+            <div class="modal-body">
+                <input type="tel" class="modal-input" placeholder="연락처">
+                <input type="text" class="modal-input" placeholder="성함">
+                
+                <div class="modal-terms">
+                    <label class="terms-label">
+                        <input type="checkbox" id="agree-terms" class="terms-checkbox">
+                        <span class="terms-text">개인정보 수집 및 이용 동의 (필수)</span>
+                    </label>
+                </div>
+
+                <button class="modal-submit-btn">신청하기</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 두 번째 팝업 모달 (전화 안내) -->
+    <div id="success-modal" class="modal-overlay">
+        <div class="modal-content text-center">
+            <div class="modal-character-wrapper">
+                <img src="images/success-character.png" alt="Success Character" class="modal-character">
+            </div>
+            <div class="modal-body success-body">
+                <h2 class="success-title">지금 이 번호로 전화가 가요</h2>
+                <div class="success-phone">
+                    <span class="phone-icon">📞</span>
+                    <span class="phone-number">1555-4118</span>
+                </div>
+                <p class="success-subtext">
+                    소복이 목소리에요. 신청 내용이 조금 복잡해서,<br>
+                    제가 대신 쉽게 읽어드리려고요.<br>
+                    부담 갖지 마세요. 정보만 받아보세요.
+                </p>
+                <button class="modal-close-btn-bottom" id="success-close-btn">닫기</button>
+            </div>
+        </div>
+    </div>
+
+    </div> <!-- #app 컨테이너 종료 -->
+    <script src="script.js?v=3"></script>
+</body>
+</html>

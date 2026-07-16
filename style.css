@@ -1,0 +1,1354 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'NanumSquareNeo', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+    background-color: #f0f2f5; /* PC 화면에서 모바일 프레임이 돋보이도록 바탕색 변경 */
+    color: #333;
+    line-height: 1.6;
+    letter-spacing: -0.5px;
+    /* 모바일 환경 최적화 */
+    -webkit-font-smoothing: antialiased;
+    text-size-adjust: 100%;
+}
+
+#app {
+    width: 100%;
+    max-width: 480px; /* 모바일 전용 고정 최대 너비 */
+    margin: 0 auto;
+    background-color: #ffffff;
+    min-height: 100vh;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1); /* 그림자 살짝 강화 */
+    overflow-x: hidden;
+    position: relative; /* 자식 요소들의 기준점 */
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+    text-align: center;
+    background-color: #ffffff;
+    color: #333;
+    position: relative; /* 오브젝트 배치를 위한 기준점 */
+}
+
+.floating-obj {
+    position: absolute;
+    width: 100px; /* 초기 크기 */
+    z-index: 10;
+    pointer-events: none; /* 클릭 방해 방지 */
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { margin-top: 0px; }
+    50% { margin-top: -15px; }
+    100% { margin-top: 0px; }
+}
+
+.hero h1 {
+    font-family: 'NanumSquareNeoExtraBold', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    letter-spacing: -1px;
+}
+
+.hero-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin-top: 0.5rem;
+    display: block;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+#obj1 {
+    transform: translate(107px, 61px) scale(0.7) rotate(0deg);
+    animation-duration: 3.5s; /* 서로 다른 속도로 둥둥거리게 */
+}
+
+#obj2 {
+    transform: translate(-93px, -117px) scale(0.5) rotate(0deg);
+    animation-duration: 4s;
+    animation-delay: 0.5s;
+}
+
+/* --- 소노 멤버십 마퀴 애니메이션 --- */
+
+.badge-overlay-icon {
+    position: absolute;
+    top: -14px;
+    right: -6px;
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    z-index: 10;
+}
+
+.membership-content {
+    width: 100%;
+    margin-top: 0;
+    position: relative;
+}
+
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 0 12px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.marquee-row {
+    display: flex;
+    gap: 10px;
+    width: max-content;
+}
+
+.marquee-content {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.marquee-content.left {
+    animation: scroll-left 25s linear infinite;
+}
+
+.marquee-content.right {
+    animation: scroll-right 15s linear infinite;
+}
+
+.marquee-badge {
+    font-family: 'NanumSquareNeoExtraBold', sans-serif;
+    position: relative;
+    font-size: 16px;
+    font-weight: 800;
+    color: #2563eb;
+    background-color: rgba(37, 99, 235, 0.05);
+    border: 1.5px solid #2563eb;
+    padding: 8px 16px;
+    border-radius: 30px;
+    white-space: nowrap;
+    letter-spacing: -0.3px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.marquee-badge.blue-pill {
+    background-color: #2563eb;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+.marquee-badge.black-outline {
+    color: #1e293b;
+    background-color: rgba(30, 41, 59, 0.05);
+    border-color: #1e293b;
+}
+
+.marquee-badge.black-pill {
+    background-color: #1e293b;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+@keyframes scroll-left {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-100% - 12px)); }
+}
+
+@keyframes scroll-right {
+    from { transform: translateX(calc(-100% - 12px)); }
+    to { transform: translateX(0); }
+}
+
+/* --- 수직 CTA 버튼 영역 --- */
+.cta-buttons-vertical {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 10px;
+}
+
+.btn {
+    font-family: 'NanumSquareNeoExtraBold', sans-serif;
+    padding: 18px 20px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 800;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    width: 100%;
+}
+
+.btn:active {
+    transform: scale(0.96);
+}
+
+.btn-primary {
+    position: relative;
+    background-color: #008AFF;
+    color: #ffffff;
+}
+
+/* 말풍선 툴팁 */
+.tooltip-bubble {
+    position: absolute;
+    top: -38px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    color: #333;
+    border: 1.5px solid #333;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: tooltip-bounce 2s infinite ease-in-out;
+    pointer-events: none;
+}
+
+.tooltip-bubble::before {
+    content: '';
+    position: absolute;
+    bottom: -6.5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6.5px 6.5px 0;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+
+.tooltip-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px 5px 0;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;
+}
+
+@keyframes tooltip-bounce {
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, -5px); }
+}
+
+.btn-secondary {
+    background-color: #ffffff;
+    color: #008AFF; /* 글씨 색상을 파란색으로 하여 통일감 부여 */
+    border: 1.5px solid rgba(0, 138, 255, 0.2); /* 은은한 파란 테두리 */
+}
+
+/* --- 안내 섹션 --- */
+.info-section {
+    background-color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+    width: 100%;
+    overflow: hidden; /* 영역 밖으로 삐져나가는 이미지 숨김 처리 */
+    position: relative; /* 자식 요소 절대 배치를 위한 기준 */
+}
+
+.info-section .content-wrapper {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.info-section .section-title {
+    font-family: 'NanumSquareNeoExtraBold', sans-serif;
+    font-size: 24px;
+    color: #111;
+    margin-bottom: 16px;
+    line-height: 1.4;
+}
+
+.info-section .section-desc {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.info-section .section-desc strong {
+    color: #111;
+    font-family: 'NanumSquareNeoExtraBold', sans-serif;
+    font-weight: 800;
+}
+
+.black-frame {
+    background-color: #111;
+    width: 100%;
+    border-radius: 20px;
+    margin-top: 30px;
+    padding: 24px 20px; /* 상하 여백 축소 */
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.white-frame {
+    background-color: #ffffff;
+    width: 100%;
+    border-radius: 20px;
+    margin-top: 20px;
+    padding: 30px 28px; /* 너무 좁지 않도록 여백을 다시 살짝 줄임 */
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.04);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.wf-text-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+}
+
+.wf-sub-text {
+    font-size: 12px;
+    color: #888;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+.wf-main-title {
+    font-family: 'NanumSquareNeoExtraBold', sans-serif;
+    font-size: 20px;
+    color: #111;
+    line-height: 1.4;
+    letter-spacing: -0.5px;
+}
+
+/* --- 단일 도넛 차트 (화이트 프레임 우측) --- */
+.wf-chart-content {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    flex-shrink: 0;
+}
+
+.single-ring-svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.single-ring-track {
+    stroke: #f0f0f0;
+}
+
+.single-ring-progress {
+    stroke: #008AFF; /* 블루 테마 컬러 통일 */
+    stroke-dasharray: 251.2; /* 2 * PI * 40 = 251.2 */
+    stroke-dashoffset: 251.2;
+    transition: stroke-dashoffset 1.5s ease-in-out;
+}
+
+.wf-chart-content.visible .single-ring-progress {
+    stroke-dashoffset: 63.8; /* 251.2 * (1 - 0.746) = 63.8 */
+}
+
+.single-ring-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    align-items: baseline;
+    color: #008AFF;
+}
+
+.srt-value {
+    font-family: 'NanumSquareNeoExtraBold', sans-serif;
+    font-size: 22px;
+    letter-spacing: -0.5px;
+}
+
+.srt-unit {
+    font-size: 13px;
+    font-weight: 700;
+    margin-left: 1px;
+}
+
+.chart-title {
+    color: #fff;
+    font-family: 'NanumSquareNeoExtraBold', sans-serif;
+    font-size: 18px;
+    text-align: center;
+    word-break: keep-all; /* 단어 단위로 줄바꿈 되도록 설정 */
+}
+
+.chart-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 24px; /* 타이틀과의 간격 확보 */
+}
+
+.rings-wrapper {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    flex-shrink: 0;
+}
+
+.ring-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.ring-item.visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.ring-svg {
+    transform: rotate(-90deg);
+}
+
+.ring-track {
+    stroke: rgba(255, 255, 255, 0.1);
+}
+
+.ring-progress {
+    filter: drop-shadow(0 0 6px rgba(0,0,0,0.15));
+    transition: stroke-dashoffset 1.8s ease-in-out;
+}
+
+.legend-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    /* width: 100%; <- 이 부분이 한쪽으로 밀어내는 원인이었으므로 제거 */
+    text-align: left;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.legend-wrapper.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.legend-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.legend-label {
+    font-size: 13px;
+    color: #999;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+.legend-value {
+    font-family: 'NanumSquareNeoExtraBold', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.legend-unit {
+    font-family: 'NanumSquareNeoBold', sans-serif;
+    font-size: 14px;
+    color: inherit; /* 숫자 색상을 그대로 따라가도록 상속 */
+    margin-left: 2px;
+    font-weight: 700;
+}
+
+.chart-footnotes {
+    margin-top: 20px; /* 각주 위 여백 축소 */
+    padding-top: 14px; /* 각주 안쪽 상단 여백 축소 */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 12px;
+    color: #888;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease 0.6s, transform 0.5s ease 0.6s;
+}
+
+.chart-footnotes.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.footnote-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footnote-label {
+    letter-spacing: -0.3px;
+}
+
+.footnote-value {
+    color: #aaa;
+}
+
+.footnote-sub-text {
+    font-size: 11px;
+    color: #666;
+    margin-top: 4px;
+    line-height: 1.4;
+}
+
+/* 외부 출처 표기 */
+.source-footnote {
+    margin-top: 16px;
+    font-size: 11px;
+    color: #999; /* 밝은 배경(화이트) 위에서 보이도록 회색으로 수정 */
+    text-align: center; /* 우측 정렬에서 중앙 정렬로 변경 */
+    letter-spacing: -0.3px;
+}
+
+/* 하단 맺음말 영역 */
+.closing-wrapper {
+    position: relative; /* 자식 요소의 absolute 기준점 */
+    margin-top: 48px;
+    padding-bottom: 20px; /* 이미지가 아래로 삐져나갈 공간 확보 */
+}
+
+.closing-text {
+    position: relative;
+    z-index: 2; /* 텍스트가 항상 이미지 위로 오도록 */
+    font-family: 'NanumSquareNeoBold', sans-serif; /* 한 단계 굵은 폰트 적용 */
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+    text-align: left; /* 좌측 정렬로 변경 */
+    letter-spacing: -0.5px;
+}
+
+.closing-image {
+    position: absolute;
+    right: -10px; /* 기본 위치 (우측 약간 바깥) */
+    bottom: -10px; /* 기본 위치 (하단 약간 바깥) */
+    z-index: 1; /* 텍스트 뒤 혹은 텍스트와 겹치게 배치 */
+    width: 300px;
+    transform: translate(94px, 29px);
+    height: auto;
+    object-fit: contain;
+}
+
+.closing-text p {
+    margin: 0;
+}
+
+.closing-text strong {
+    display: block;
+    margin-top: 8px;
+    font-family: 'NanumSquareNeoExtraBold', sans-serif;
+    color: #008AFF; /* 브랜드 파란색으로 강조 */
+    font-size: 20px;
+}
+
+/* 다음 섹션 유도 텍스트 */
+.next-section-teaser {
+    margin-top: 60px;
+    font-size: 14px;
+    color: #008AFF; /* 브랜드 파란색으로 변경 */
+    text-align: center;
+    font-family: 'NanumSquareNeoExtraBold', sans-serif; /* 한 단계 더 굵게 */
+    letter-spacing: -0.5px;
+}
+
+/* 스크롤 유도 아래 화살표 애니메이션 */
+.scroll-arrows {
+    position: relative;
+    width: 24px;
+    height: 30px;
+    margin: 12px auto 0; /* 텍스트 아래쪽 여백 */
+}
+
+.scroll-arrows span {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 14px;
+    height: 14px;
+    margin-left: -7px; /* 중앙 정렬 보정 */
+    border-left: 2.5px solid #008AFF;
+    border-bottom: 2.5px solid #008AFF;
+    transform: rotate(-45deg); /* v 모양의 아래쪽 화살표로 회전 */
+    animation: scroll-arrow-anim 2s infinite;
+    opacity: 0;
+    box-sizing: border-box;
+}
+
+.scroll-arrows span:nth-child(1) {
+    top: 0;
+    animation-delay: 0s;
+}
+
+.scroll-arrows span:nth-child(2) {
+    top: 8px; /* 첫 번째 화살표 바로 아래 배치 */
+    animation-delay: 0.2s; /* 약간 늦게 시작하여 흐르는 듯한 효과 */
+}
+
+@keyframes scroll-arrow-anim {
+    0% {
+        opacity: 0;
+        transform: translateY(-5px) rotate(-45deg);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0) rotate(-45deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(5px) rotate(-45deg);
+    }
+}
+
+/* --- 하단 새 프레임 섹션 --- */
+.bottom-section {
+    background-color: #fff;
+    padding: 20px 20px 80px; /* 좌우 여백 20px, 하단 여유 공간 80px */
+    position: relative;
+    z-index: 1; /* 기준 레이어 */
+}
+
+/* 하단 배경 이미지 (프레임 뒤에 배치) */
+.bottom-bg-image {
+    position: absolute;
+    top: -50px;
+    left: -20px;
+    width: 242px; /* 스크린샷 값 적용 */
+    transform: translate(23px, 59px); 
+    height: auto;
+    object-fit: contain;
+    z-index: 0; /* 프레임(z-index: 2)보다 뒤에 위치 */
+}
+
+/* 손가락이 가리키는 말풍선 프레임 */
+.finger-speech-bubble {
+    position: absolute;
+    top: 62px; /* 아주 살짝 위로 이동 (기존 70px -> 62px) */
+    left: 170px; /* 캐릭터 이미지 오른쪽에 위치하도록 */
+    background-color: #111; /* 블랙 배경 */
+    color: #fff; /* 흰색 글씨 */
+    padding: 10px 18px;
+    border-radius: 20px;
+    font-family: 'NanumSquareNeoExtraBold', sans-serif;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 3; /* 프레임보다도 위에 떠 있도록 설정 */
+    animation: float-bubble 2s ease-in-out infinite;
+}
+
+/* 말풍선 꼬리 (왼쪽 뾰족한 부분) */
+.finger-speech-bubble::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -6px; /* 왼쪽으로 삐져나오게 */
+    transform: translateY(-50%);
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-right: 8px solid #111; /* 말풍선 배경색과 동일한 꼬리 색상 */
+}
+
+@keyframes float-bubble {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
+/* 모바일 전용 줄바꿈 (기본은 숨김 처리) */
+.mobile-break {
+    display: none;
+}
+
+.bottom-square-frame {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    min-height: 140px;
+    color: #ffffff;
+    margin-top: 150px;
+    padding: 28px 24px;
+    background-color: #008AFF;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 138, 255, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    overflow: hidden; /* 이미지가 프레임 밖으로 나가지 않도록 */
+}
+
+/* --- 하단 프레임 내부 레이아웃 --- */
+.frame-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    overflow: visible; /* 이미지가 프레임 위로 나올 수 있도록 */
+}
+
+.frame-text-area {
+    display: flex;
+    flex-direction: row; /* 가로 배치로 복구 */
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    padding-right: 12px;
+}
+
+.frame-number-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border: 1.5px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 800;
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
+.frame-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.75);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.frame-title {
+    font-family: 'NanumSquareNeoExtraBold', sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+    margin: 0;
+}
+
+.frame-circle-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1.5px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50px;
+    padding: 6px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffffff;
+    width: fit-content;
+}
+
+.frame-image-area {
+    position: absolute;
+    right: -20px;
+    bottom: -50px;
+    width: 55%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    pointer-events: none;
+}
+
+.frame-char-img {
+    width: 100%;
+    max-width: 260px;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.25));
+}
+
+/* --- 하단 프레임 내부 그리드 카드 --- */
+.reason-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.reason-card {
+    border-radius: 16px;
+    padding: 24px 20px;
+    min-height: 120px; /* 카드 기본 높이 */
+}
+
+/* 첫 번째 줄 (연한 블루 카드로 변경) */
+.glass-card {
+    position: relative; /* 아이콘 절대 위치 기준점 */
+    background-color: #e6f0fa; /* 연한 블루로 변경 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* 밝은 배경에 맞게 그림자 다시 부드럽게 */
+    color: #111; /* 밝은 배경이므로 텍스트는 어둡게 변경 */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 텍스트 완벽한 중앙 정렬 */
+    overflow: hidden; /* 프레임 밖으로 나간 아이콘 가리기 */
+}
+
+.top-card-icon {
+    position: absolute;
+    top: 50%;
+    left: -56px; /* 왼쪽으로 조금 이동 (기존 -44px -> -56px) */
+    transform: translateY(-50%); /* 수직 중앙 정렬 */
+    width: 154px; /* 기존 128px에서 1.2배 확대 */
+    height: 154px; /* 기존 128px에서 1.2배 확대 */
+    object-fit: contain;
+    z-index: 1; /* 레이어층을 바닥으로 깔아서 텍스트에 영향 주지 않음 */
+}
+
+.top-card-text {
+    position: relative;
+    z-index: 2; /* 텍스트가 아이콘보다 위층(앞)에 오도록 설정 */
+    font-family: 'NanumSquareNeoHeavy', 'NanumSquareNeoExtraBold', sans-serif; /* 가장 굵은 Heavy 폰트 적용 (없으면 ExtraBold) */
+    font-size: 20px; /* 타이틀 느낌이 나도록 폰트 크기 확대 */
+    letter-spacing: -0.5px;
+    word-break: keep-all;
+    text-align: center;
+    margin-left: 48px; /* 텍스트를 오른쪽으로 더 이동시키기 위해 왼쪽 여백을 늘림 (기존 32px -> 48px) */
+}
+
+/* 아래쪽 카드들 (가로로 꽉 차는 직사각형) */
+.bottom-card {
+    width: 100%;
+    min-height: 120px; /* 첫 번째 카드와 높이 통일 */
+    background-color: #ffffff; /* 화이트 배경 */
+    color: #111; /* 어두운 텍스트 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* 부드러운 그림자 */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 텍스트 중앙 정렬 */
+}
+
+/* --- 모달 (팝업 양식) --- */
+
+@media (max-width: 380px) {
+    /* 아이폰 SE 등 아주 작은 화면에서 말풍선 위치 조정 및 텍스트 더 크게 */
+    .finger-speech-bubble {
+        left: 185px !important; /* 조금 더 오른쪽으로 이동 */
+    }
+    .finger-speech-bubble .chart-title {
+        font-size: 17px !important;
+    }
+
+    /* SE 화면에서 곰돌이 아이콘 크기 1.2배 축소 및 위치 조정 */
+    .top-card-icon {
+        width: 128px !important;
+        height: 128px !important;
+        left: -32px !important; /* 너무 밖으로 나가지 않도록 안쪽으로 당김 (기존 -48px -> -32px) */
+    }
+
+    /* SE 화면에서 줄어든 아이콘 크기에 맞춰 텍스트 여백 및 크기 미세 축소 */
+    .top-card-text {
+        margin-left: 28px !important;
+        font-size: 18px !important; /* 아주 살짝 폰트 크기 축소 (기존 20px -> 18px) */
+    }
+
+    .chart-container {
+        gap: 12px;
+    }
+    .legend-value {
+        font-size: 18px;
+    }
+    .legend-label {
+        font-size: 11px;
+    }
+    
+    /* 화이트 프레임 도넛 크기 및 텍스트 축소 */
+    .wf-chart-content {
+        width: 86px;
+        height: 86px;
+    }
+    .srt-value {
+        font-size: 18px;
+    }
+    .srt-unit {
+        font-size: 11px;
+    }
+}
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: #F0F6F9;
+    width: 90%;
+    max-width: 340px;
+    border-radius: 24px;
+    position: relative;
+    padding: 45px 24px 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0);
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #999;
+    cursor: pointer;
+}
+
+.modal-character-wrapper {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    background-color: #EBF5FA;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border: 4px solid #fff;
+    overflow: hidden;
+}
+
+.modal-character {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 10px;
+}
+
+.modal-input {
+    width: 100%;
+    padding: 16px 20px;
+    background-color: #E8F4FA; /* 약한 블루 컬러 */
+    border-radius: 12px;
+    border: none;
+    font-family: 'NanumSquareNeoBold', sans-serif;
+    font-size: 14px;
+    color: #333;
+    outline: none;
+    box-shadow: inset 0 0 0 1px transparent;
+    transition: box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.modal-input:focus {
+    box-shadow: inset 0 0 0 2px #008AFF;
+}
+
+.modal-input::placeholder {
+    color: #999;
+    font-weight: 700;
+}
+
+.modal-terms {
+    margin-top: 5px;
+    padding: 0 5px;
+}
+
+.terms-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.terms-checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #00D084;
+}
+
+.terms-text {
+    font-size: 13px;
+    color: #666;
+    font-weight: 700;
+}
+
+.modal-submit-btn {
+    font-family: 'NanumSquareNeoExtraBold', sans-serif;
+    margin-top: 10px;
+    background-color: #008AFF;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    align-self: center;
+    width: 150px;
+    transition: transform 0.2s ease;
+}
+
+.modal-submit-btn:active {
+    transform: scale(0.96);
+}
+
+.modal-submit-btn.submitted {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+}
+
+.checkmark {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: block;
+    stroke-width: 5;
+    stroke: #fff;
+    stroke-miterlimit: 10;
+}
+
+.checkmark__circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 4;
+    stroke-miterlimit: 10;
+    stroke: #fff;
+    fill: none;
+    animation: checkmark-stroke 0.4s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark__check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: checkmark-stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.4s forwards;
+}
+
+@keyframes checkmark-stroke {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* --- 두 번째 모달 (전화 안내) --- */
+.text-center {
+    text-align: center;
+}
+
+.success-body {
+    align-items: center;
+    gap: 12px;
+}
+
+.success-title {
+    font-family: 'NanumSquareNeoExtraBold', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    color: #333;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.success-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #EBF5FA;
+    padding: 12px 24px;
+    border-radius: 30px;
+    margin-bottom: 5px;
+}
+
+.phone-icon {
+    font-size: 18px;
+}
+
+.phone-number {
+    font-family: 'NanumSquareNeoExtraBold', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    color: #008AFF;
+    letter-spacing: 1px;
+}
+
+.success-subtext {
+    font-family: 'NanumSquareNeoBold', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.modal-close-btn-bottom {
+    font-family: 'NanumSquareNeoExtraBold', sans-serif;
+    background-color: #f1f1f1;
+    color: #444;
+    border: none;
+    border-radius: 30px;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s ease;
+}
+
+.modal-close-btn-bottom:active {
+    background-color: #e5e5e5;
+}
+
+/* 작은 화면 (아이폰 SE, 일반, Pro 등) 최적화 */
+@media (max-width: 430px) {
+    /* 아이폰 일반 화면에서 말풍선 위치 조정 및 텍스트 크게 */
+    .finger-speech-bubble {
+        left: 190px !important; /* 조금 더 오른쪽으로 이동 */
+    }
+    .finger-speech-bubble .chart-title {
+        font-size: 18px !important;
+        line-height: 1.4; /* 두 줄 텍스트가 너무 벌어지지 않게 줄간격 살짝 조정 */
+    }
+
+    /* (주의) 곰돌이 아이콘 위치 조정은 아래에서 화면 크기별로 분리하여 적용합니다. */
+
+    /* 작은 화면에서 줄바꿈 활성화 */
+    .mobile-break {
+        display: block;
+    }
+
+    #obj1 {
+        transform: translate(87px, 61px) scale(0.7) rotate(0deg);
+    }
+    #obj2 {
+        transform: translate(-73px, -117px) scale(0.5) rotate(0deg);
+    }
+
+    /* 아이폰 일반 & SE: 프레임 곰돌이 이미지 크게 및 위치 조정 */
+    .frame-image-area {
+        right: -30px; /* 더 오른쪽으로 이동 */
+    }
+    
+    .frame-char-img {
+        max-width: 300px;
+    }
+}
+
+/* --- 별점 애니메이션 (Star Rating) --- */
+:root {
+    --rating-bg: transparent;
+    --rating-fg: #ffffff;
+    --rating-primary: hsl(223, 90%, 55%);
+    --rating-yellow: hsl(38, 90%, 55%);
+    --rating-yellow-t: hsla(38, 90%, 55%, 0);
+    --rating-bezier: cubic-bezier(0.42, 0, 0.58, 1);
+    --rating-trans-dur: 0.3s;
+}
+
+.star-rating-wrapper {
+    position: absolute;
+    /* 잘린 우상단 빈 공간 중앙 배치 */
+    top: 0;
+    right: 0;
+    width: 50%;     /* 잘린 공간의 너비 (bg-top-left가 50%이므로 50%) */
+    height: 50%;    /* 잘린 공간의 높이 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    font-size: 14px; /* 별 크기 */
+}
+
+.rating {
+    margin: auto;
+    position: relative;
+    color: var(--rating-fg);
+}
+.rating__display {
+    font-size: 1em;
+    font-weight: 500;
+    min-height: 1.25em;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    text-align: center;
+}
+.rating__stars {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2px;
+    padding-bottom: 0;
+    position: relative;
+}
+
+.rating__star {
+    display: block;
+    overflow: visible;
+    pointer-events: none;
+    width: 2em;
+    height: 2em;
+}
+
+.rating__star-ring,
+.rating__star-fill,
+.rating__star-line {
+    stroke: var(--rating-yellow);
+}
+
+.rating__star-fill {
+    fill: var(--rating-yellow);
+    transform: scale(0);
+}
+
+.rating__star-line {
+    stroke-dasharray: 12 13;
+    stroke-dashoffset: -13;
+}
+
+.rating__star-stroke {
+    stroke: rgba(255, 255, 255, 0.8);
+    stroke-width: 2px;
+    transition: stroke var(--rating-trans-dur);
+}
+
+/* 애니메이션 트리거 (.animate 클래스가 추가되면 실행) */
+.star-rating-wrapper.animate .rating__star-ring { animation-name: starRing; }
+.star-rating-wrapper.animate .rating__star-fill { animation-name: starFill; }
+.star-rating-wrapper.animate .rating__star-line { animation-name: starLine; }
+.star-rating-wrapper.animate .rating__star-stroke { animation-name: starStroke; }
+
+/* 딜레이 순차 적용 */
+.star-rating-wrapper.animate .rating__star.delay-2 .rating__star-ring,
+.star-rating-wrapper.animate .rating__star.delay-2 .rating__star-fill,
+.star-rating-wrapper.animate .rating__star.delay-2 .rating__star-line,
+.star-rating-wrapper.animate .rating__star.delay-2 .rating__star-stroke { animation-delay: 0.1s; }
+
+.star-rating-wrapper.animate .rating__star.delay-3 .rating__star-ring,
+.star-rating-wrapper.animate .rating__star.delay-3 .rating__star-fill,
+.star-rating-wrapper.animate .rating__star.delay-3 .rating__star-line,
+.star-rating-wrapper.animate .rating__star.delay-3 .rating__star-stroke { animation-delay: 0.2s; }
+
+.star-rating-wrapper.animate .rating__star.delay-4 .rating__star-ring,
+.star-rating-wrapper.animate .rating__star.delay-4 .rating__star-fill,
+.star-rating-wrapper.animate .rating__star.delay-4 .rating__star-line,
+.star-rating-wrapper.animate .rating__star.delay-4 .rating__star-stroke { animation-delay: 0.3s; }
+
+.star-rating-wrapper.animate .rating__star.delay-5 .rating__star-ring,
+.star-rating-wrapper.animate .rating__star.delay-5 .rating__star-fill,
+.star-rating-wrapper.animate .rating__star.delay-5 .rating__star-line,
+.star-rating-wrapper.animate .rating__star.delay-5 .rating__star-stroke { animation-delay: 0.4s; }
+
+.rating__star-ring,
+.rating__star-fill,
+.rating__star-line,
+.rating__star-stroke {
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes starRing {
+    from, 20% { animation-timing-function: ease-in; opacity: 1; r: 8px; stroke-width: 16px; transform: scale(0); }
+    35% { animation-timing-function: ease-out; opacity: 0.5; r: 8px; stroke-width: 16px; transform: scale(1); }
+    50%, to { opacity: 0; r: 16px; stroke-width: 0; transform: scale(1); }
+}
+@keyframes starFill {
+    from, 40% { animation-timing-function: ease-out; transform: scale(0); }
+    60% { animation-timing-function: ease-in-out; transform: scale(1.2); }
+    80% { transform: scale(0.9); }
+    to { transform: scale(1); }
+}
+@keyframes starStroke {
+    from { transform: scale(1); }
+    20%, to { transform: scale(0); }
+}
+@keyframes starLine {
+    from, 40% { animation-timing-function: ease-out; stroke-dasharray: 1 23; stroke-dashoffset: 1; }
+    60%, to { stroke-dasharray: 12 13; stroke-dashoffset: -13; }
+}
+
+/* 화면 크기별 곰돌이 아이콘 전용 위치 조정 (우선순위 문제 해결) */
+@media (min-width: 381px) and (max-width: 430px) {
+    /* 아이폰 일반 화면 */
+    .top-card-icon {
+        left: -68px !important; 
+    }
+}
+
+@media (max-width: 380px) {
+    /* 아이폰 SE 등 아주 작은 화면 */
+    .top-card-icon {
+        width: 128px !important;
+        height: 128px !important;
+        left: -48px !important; /* 다시 절반 정도 바깥으로 잘려나가도록 왼쪽으로 적당히 밀어냄 (기존 -24px -> -48px) */
+    }
+}
