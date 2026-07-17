@@ -653,9 +653,16 @@ body {
     bottom: -10px; /* 기본 위치 (하단 약간 바깥) */
     z-index: 1; /* 텍스트 뒤 혹은 텍스트와 겹치게 배치 */
     width: 300px;
-    transform: translate(94px, 29px);
+    transform: translate(250px, 29px); /* 스크롤 전 오른쪽 대기 위치 */
+    opacity: 0;
+    transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1), opacity 1.2s ease-out;
     height: auto;
     object-fit: contain;
+}
+
+.closing-image.animate {
+    transform: translate(94px, 29px); /* 스크롤 감지 시 최종 도달 위치 */
+    opacity: 1;
 }
 
 .closing-text p {

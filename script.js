@@ -252,6 +252,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { threshold: 0.1 });
         starObserver.observe(starWrapper);
     }
+
+    // --- 맺음말 손 이미지 스크롤 애니메이션 ---
+    const closingImage = document.getElementById('adjustable-image');
+    if (closingImage) {
+        const closingObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    closingImage.classList.add('animate');
+                    closingObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        closingObserver.observe(closingImage);
+    }
 });
 
 
