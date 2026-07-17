@@ -1318,6 +1318,13 @@ body {
     letter-spacing: 1px;
 }
 
+/* Safari 전화번호 강제 링크 스타일 재정의 */
+.phone-number a,
+a[href^="tel"] {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
 .success-subtext {
     font-family: 'NanumSquareNeoBold', sans-serif;
     font-size: 14px;
