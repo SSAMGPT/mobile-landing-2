@@ -205,6 +205,20 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(activityChart);
     }
 
+    // --- 가로 프로그레스 바 애니메이션 ---
+    const progressBars = document.querySelector('.progress-bar-container');
+    if (progressBars) {
+        const pbObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    pbObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        pbObserver.observe(progressBars);
+    }
+
     // --- 화이트 프레임 단일 도넛 차트 애니메이션 ---
     const wfChart = document.querySelector('.wf-chart-content');
     if (wfChart) {
