@@ -952,7 +952,6 @@ body {
     width: 100%;
     max-width: 260px;
     object-fit: contain;
-    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.25));
 }
 
 .sub-frame-image-area {
