@@ -1536,3 +1536,104 @@ a[href^="tel"] {
         left: -48px !important; /* 다시 절반 정도 바깥으로 잘려나가도록 왼쪽으로 적당히 밀어냄 (기존 -24px -> -48px) */
     }
 }
+
+/* --- 하단 플로팅 버튼 --- */
+.floating-cta-container {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translate(-50%, 150px);
+    width: calc(100% - 32px);
+    max-width: 448px;
+    z-index: 99;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+    opacity: 0;
+    pointer-events: none;
+    
+    /* 왼쪽 정렬 추가 */
+    display: flex;
+    justify-content: flex-start;
+}
+
+.floating-cta-container.visible {
+    transform: translate(-50%, 0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.floating-cta-btn {
+    background-color: #FF4B72; /* 핑크 컬러 (#FF4B72) 적용 */
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 18px 24px;
+    box-shadow: 0 8px 24px rgba(255, 75, 114, 0.25), 0 -4px 16px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    overflow: visible;
+    width: auto; /* 화면 크기에 관계없이 버튼 크기를 텍스트에 맞춤 */
+    border: none;
+    outline: none;
+    position: relative;
+    text-align: left;
+}
+
+.floating-cta-btn:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+}
+
+.floating-cta-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    height: 100%;
+}
+
+/* 이미지 영역 (왼쪽) */
+.floating-image-area {
+    position: absolute;
+    left: 12px;   /* 조금 더 오른쪽으로 이동 */
+    bottom: 0;    /* 버튼 바닥에 정렬 */
+    width: 85px;  /* 적절한 크기 */
+    height: 110px; /* 버튼 높이보다 크게 하여 위로 삐져나오게 함 */
+    display: flex;
+    align-items: flex-end;
+    pointer-events: none;
+    z-index: 2;
+    /* 곰돌이 하단이 버튼의 바닥선(bottom: 0)에 맞춰 잘리도록 하단만 클립 (왼쪽 잘림 현상 방지를 위해 left 마진은 제외) */
+    clip-path: inset(-100px -50px 0px -50px);
+}
+
+.floating-char-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transform: translateY(6px); /* 이미지를 약간 아래로 이동 */
+}
+
+/* 텍스트 영역 (오른쪽) */
+.floating-text-area {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px; /* 텍스트와 화살표 사이 간격을 고정하여 맥스 화면에서 벌어지지 않게 함 */
+    margin-left: 90px; /* 이미지 이동에 맞춰 텍스트 왼쪽 여백 조정 */
+}
+
+.floating-title {
+    font-family: 'NanumSquareNeoExtraBold', sans-serif;
+    font-size: 19px;
+    font-weight: 900;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.floating-cta-content .chevron-right {
+    color: #ffffff;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+

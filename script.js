@@ -266,6 +266,48 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { threshold: 0.15 });
         closingObserver.observe(closingImage);
     }
+
+    // --- 하단 플로팅 버튼 스크롤 트리거 및 모달 연동 ---
+    const floatingCta = document.getElementById('floating-cta');
+    const blackFrame = document.querySelector('.black-frame');
+
+    if (floatingCta && blackFrame) {
+        const toggleFloatingCta = () => {
+            const rect = blackFrame.getBoundingClientRect();
+            // 블랙 프레임의 상단이 화면 하단 경계선보다 높이 올라왔을 때 플로팅 버튼 노출
+            if (rect.top < window.innerHeight) {
+                floatingCta.classList.add('visible');
+            } else {
+                floatingCta.classList.remove('visible');
+            }
+        };
+
+        window.addEventListener('scroll', toggleFloatingCta);
+        window.addEventListener('resize', toggleFloatingCta);
+        toggleFloatingCta();
+
+        // 플로팅 버튼 클릭 시 팝업 열기
+        floatingCta.addEventListener('click', () => {
+            if (formModal) {
+                const inputs = formModal.querySelectorAll('.modal-input');
+                inputs.forEach(input => input.value = '');
+                
+                const checkbox = formModal.querySelector('.terms-checkbox');
+                if (checkbox) checkbox.checked = false;
+
+                const submitBtn = formModal.querySelector('.modal-submit-btn');
+                if (submitBtn) {
+                    submitBtn.innerHTML = '신청하기';
+                    submitBtn.style.backgroundColor = '';
+                    submitBtn.style.cursor = 'pointer';
+                    submitBtn.classList.remove('submitted');
+                    submitBtn.disabled = false;
+                }
+
+                formModal.classList.add('active');
+            }
+        });
+    }
 });
 
 
