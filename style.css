@@ -1637,3 +1637,392 @@ a[href^="tel"] {
     margin-left: auto;
 }
 
+/* Coupon Card Styling */
+.coupon-card {
+    position: relative;
+    width: 135px; /* 원래 200px에서 2/3 크기로 조절 */
+    height: 66px; /* 원래 74px에서 2/3 크기로 조절 */
+    border-radius: 8px;
+    padding: 10px 12px;
+    background: linear-gradient(135deg, #e9e5ff 0%, #ffedf4 40%, #e5f9ff 70%, #fffbe3 100%);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.8), 0 3px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    flex-shrink: 0;
+    margin-right: 10px;
+    
+    /* 펀치홀 모양 마스킹: 우측(100%) 중앙(50%)에 반지름 7px짜리 투명 원을 뚫고 나머지만 보여줌 */
+    -webkit-mask-image: radial-gradient(circle at 100% 50%, transparent 7px, black 8px);
+    mask-image: radial-gradient(circle at 100% 50%, transparent 7px, black 8px);
+}
+
+/* Redundant pseudo-element removed since masking handles the cutout */
+.coupon-card::after {
+    display: none;
+}
+
+.coupon-card.yellow::after {
+    display: none;
+}
+
+.coupon-title {
+    font-family: 'NanumSquareNeoBold', sans-serif;
+    font-size: 8px; /* 원래 11px에서 축소 */
+    color: #555555;
+    margin-bottom: 2px;
+    letter-spacing: -0.3px;
+}
+
+.coupon-amount {
+    font-family: 'NanumSquareNeoExtraBold', sans-serif;
+    font-size: 18px; /* 원래 26px에서 축소 */
+    font-weight: 800;
+    color: #111111;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+}
+
+.coupon-desc {
+    font-family: 'NanumSquareNeo', sans-serif;
+    font-size: 7.5px; /* 원래 10px에서 축소 */
+    color: #777777;
+}
+
+/* Coupon Marquee Styling */
+.coupon-marquee-container {
+    width: calc(100% + 4rem);
+    margin-left: -2rem;
+    margin-right: -2rem;
+    overflow: hidden;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.coupon-marquee-row {
+    display: flex;
+    width: max-content;
+}
+
+.coupon-marquee-content {
+    display: flex;
+    flex-shrink: 0;
+    /* 쿠폰 전용의 100% 정교한 무한 루프 애니메이션으로 분리 적용 */
+    animation: coupon-scroll-left 25s linear infinite;
+}
+
+@keyframes coupon-scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Yellow Coupon Variant */
+.coupon-card.yellow {
+    background: linear-gradient(135deg, #fffbe3 0%, #fff2b2 40%, #ffe3d1 70%, #f0f7ff 100%);
+    box-shadow: 0 0 0 1px rgba(255, 235, 120, 0.9), 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Red (Daiso) Coupon Variant */
+.coupon-card.red {
+    background: linear-gradient(135deg, #fff5f5 0%, #ffdcd9 40%, #ffbfa6 75%, #fff0f3 100%);
+    box-shadow: 0 0 0 1px rgba(255, 150, 150, 0.8), 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Blue (Paris Baguette) Coupon Variant */
+.coupon-card.blue {
+    background: linear-gradient(135deg, #f0f4ff 0%, #dbeafe 45%, #93c5fd 75%, #f0f7ff 100%);
+    box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.6), 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Green (Tous les Jours) Coupon Variant */
+.coupon-card.green {
+    background: linear-gradient(135deg, #f4f9f1 0%, #c2dbb5 40%, #6e9f5e 75%, #e3eedd 100%);
+    box-shadow: 0 0 0 1px rgba(110, 159, 94, 0.8), 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Navy (Ediya Coffee) Coupon Variant - Changed to White Pearl theme */
+.coupon-card.navy {
+    background: linear-gradient(135deg, #ffffff 0%, #f9fbfd 35%, #f1f3f5 70%, #ffffff 100%);
+    box-shadow: 0 0 0 1px rgba(215, 220, 225, 0.9), 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Purple (CU) Coupon Variant */
+.coupon-card.purple {
+    background: linear-gradient(135deg, #f5f0ff 0%, #c7adff 40%, #7e57c2 75%, #ebdfff 100%);
+    box-shadow: 0 0 0 1px rgba(126, 87, 194, 0.8), 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+.coupon-card-wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Icon layout in the card */
+.coupon-card .coupon-icon-wrapper {
+    position: absolute;
+    bottom: -22px; /* 원형 로고를 약간 더 아래로 내려오도록 위치 세밀 보정 */
+    right: -10px;  /* 기존 -15px에서 -10px로 변경하여 로고 서클을 왼쪽으로 살짝 당김 */
+    width: 56px;  /* 기존 72px에서 56px로 축소 */
+    height: 56px;
+    background-color: #ffffff;
+    z-index: 2;
+    
+    /* border-radius + overflow:hidden 대신 clip-path circle 마스킹을 사용하여 레티나 디스플레이 화질 저하 방지 */
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    
+    /* 하드웨어 가속 강제 설정 */
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+/* CU 전용: 로고 자체의 짙은 보라색 배경과 동화되도록 흰색 원형 배경/그림자 투명화 */
+.coupon-card.purple .coupon-icon-wrapper {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.coupon-card .coupon-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 이미지가 프레임에 가득 차도록 설정 */
+    
+    /* GPU 하드웨어 텍스처 필터링 강제 트리거 */
+    filter: blur(0px);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+/* 다이소 전용: 로고 마크가 원형 프레임 밖으로 넘쳐 보이지 않도록 내부 로고 크기 76%로 축소 및 중앙 배치 */
+.coupon-card.red .coupon-icon {
+    width: 76%;
+    height: 76%;
+    object-fit: contain;
+    margin: auto;
+}
+
+/* Glassmorphic Download Button in Top-Right */
+.coupon-download-btn {
+    position: absolute;
+    top: 8px;
+    right: 12px; /* 펀치홀과 세로 정렬 감안 */
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.35); /* 반투명 유리 배경 */
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #444444; /* 소프트 차콜 */
+    box-shadow: 
+        0 1px 3px rgba(0, 0, 0, 0.05),
+        inset 0 0.5px 0.5px rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 3;
+    cursor: pointer; /* 클릭할 수 있도록 커서 변경 */
+    transition: background-color 0.15s ease, transform 0.15s ease;
+    outline: none;
+    padding: 0;
+}
+
+.coupon-download-btn:active {
+    transform: scale(0.9); /* 클릭 시 꾹 눌리는 입체감 피드백 */
+    background-color: rgba(255, 255, 255, 0.55);
+}
+
+.coupon-download-btn svg {
+    width: 10px;
+    height: 10px;
+    stroke-width: 3; /* 선 두께를 주어 작아도 선명하게 노출 */
+}
+
+/* Large Aurora Coupon Form Frame */
+.coupon-form-frame {
+    position: relative;
+    width: calc(100% - 20px);
+    max-width: 400px;
+    margin: 10px auto 25px auto; /* 마진 축소 */
+    border-radius: 12px;
+    padding: 14px 16px; /* 패딩을 기존 24px/20px에서 14px/16px로 대폭 축소 */
+    background-image: 
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E"),
+        linear-gradient(135deg, #e9e5ff 0%, #ffedf4 40%, #e5f9ff 70%, #fffbe3 100%);
+    
+    /* 입체감을 살린 복합 섀도우 및 테두리 */
+    box-shadow: 
+        inset 0 1px 1px rgba(255, 255, 255, 0.9), 
+        inset 0 -1px 1px rgba(0, 0, 0, 0.03), 
+        0 0 0 1px rgba(255, 255, 255, 0.8), 
+        0 10px 25px rgba(0, 0, 0, 0.08), 
+        0 4px 10px rgba(0, 0, 0, 0.04);
+        
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    /* 우측 펀치홀 마스크 (대형 프레임 크기에 맞춰 반지름 14px로 지정) */
+    -webkit-mask-image: radial-gradient(circle at 100% 50%, transparent 14px, black 15px);
+    mask-image: radial-gradient(circle at 100% 50%, transparent 14px, black 15px);
+    
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.coupon-form-inner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* 내부 요소 간 간격을 12px에서 8px로 축소 */
+}
+
+.coupon-form-frame .form-frame-title {
+    font-family: 'NanumSquareNeoExtraBold', sans-serif;
+    font-size: 14px !important; /* 덮어쓰기 방지를 위해 !important 추가 */
+    font-weight: 800;
+    color: #111111;
+    margin: 0;
+    letter-spacing: -0.4px;
+    text-align: center;
+}
+
+.coupon-form-frame .form-frame-desc {
+    font-family: 'NanumSquareNeo', sans-serif;
+    font-size: 10px !important; /* 덮어쓰기 방지 및 크기 10px로 확실히 축소 */
+    font-weight: 400 !important; /* 얇은 폰트로 가독성 정돈 */
+    color: #666666 !important;
+    margin: 0 !important;
+    line-height: 1.4 !important;
+    text-align: center !important;
+}
+
+/* 입력 필드 디자인 - 글래스모피즘 */
+.form-frame-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 6px; /* 인풋들 사이의 간격 축소 */
+}
+
+/* 휴대폰 입력창과 동의 체크박스를 감싸는 가로 행 flex 컨테이너 */
+.form-frame-row {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 요소들을 중앙으로 모아서 정렬 */
+    width: 100%;
+    gap: 12px; /* 간격을 12px로 살짝 넓혀 가독성 향상 */
+}
+
+.frame-input {
+    flex: 1; /* 가용 공간을 유연하게 늘리되 */
+    max-width: 180px; /* 너무 길쭉해져서 밸런스가 깨지지 않도록 최대 가로 폭 180px로 제한 */
+    height: 36px; /* 높이를 44px에서 36px로 콤팩트하게 다이어트 */
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 0 12px;
+    font-family: 'NanumSquareNeoBold', sans-serif;
+    font-size: 11px; /* 글씨 크기 12px에서 11px로 축소 */
+    color: #222222;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+    text-align: left;
+}
+
+.frame-input::placeholder {
+    color: #777777;
+}
+
+.frame-input:focus {
+    border-color: #7e57c2;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.frame-submit-btn {
+    width: 100%;
+    height: 38px; /* 버튼 높이를 46px에서 38px로 콤팩트하게 다이어트 */
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(135deg, #7e57c2 0%, #673ab7 100%);
+    color: #ffffff;
+    font-family: 'NanumSquareNeoExtraBold', sans-serif;
+    font-size: 11.5px; /* 글씨 크기 13px에서 11.5px로 축소 */
+    font-weight: 800;
+    box-shadow: 0 3px 8px rgba(126, 87, 194, 0.3);
+    cursor: pointer;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.frame-submit-btn:active {
+    transform: scale(0.98);
+    opacity: 0.95;
+}
+
+/* 1X2 배치: 약관 동의 체크박스 영역 스타일링 */
+.frame-agreement {
+    margin-top: 0px; /* 마진 제거 */
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.agreement-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.frame-checkbox {
+    width: 12px; /* 체크박스 크기를 14px에서 12px로 축소 */
+    height: 12px;
+    accent-color: #7e57c2;
+    cursor: pointer;
+}
+
+.agreement-text {
+    font-family: 'NanumSquareNeo', sans-serif;
+    font-size: 9px; /* 글씨 크기 10px에서 9px로 축소 */
+    color: #444444;
+    letter-spacing: -0.2px;
+}
+
+/* 각주 영역 스타일링 (태그 + 메시지 구성) */
+.form-frame-footnote {
+    margin-top: 6px; /* 마진을 10px에서 6px로 축소 */
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-top: 1px dashed rgba(126, 87, 194, 0.12);
+    padding-top: 6px; /* 패딩을 10px에서 6px로 축소 */
+}
+
+.footnote-badge {
+    font-family: 'NanumSquareNeoExtraBold', sans-serif;
+    font-size: 8px; /* 9px에서 8px로 축소 */
+    font-weight: 800;
+    color: #7e57c2;
+    background-color: rgba(126, 87, 194, 0.1);
+    padding: 1px 4px;
+    border-radius: 3px;
+    line-height: 1;
+    letter-spacing: -0.2px;
+}
+
+.footnote-text {
+    font-family: 'NanumSquareNeoBold', sans-serif;
+    font-size: 8.5px; /* 9.5px에서 8.5px로 축소 */
+    color: #666666;
+    letter-spacing: -0.3px;
+    line-height: 1;
+}

@@ -308,6 +308,35 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // 쿠폰 카드 클릭 시 알림 팝업 및 상담 신청 영역으로 스크롤 이동
+    document.addEventListener('click', (e) => {
+        const couponCard = e.target.closest('.coupon-card');
+        if (couponCard) {
+            e.preventDefault();
+            alert("'쿠폰 선물받고 신청하기'로 이동합니다.");
+            
+            // 최하단 상담 신청 영역(bottom-section)으로 부드럽게 스크롤 이동
+            const bottomSection = document.querySelector('.bottom-section');
+            if (bottomSection) {
+                bottomSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    });
+
+    // 개발용 자동 새로고침 폴링 스크립트
+    let lastETag = null;
+    setInterval(() => {
+        fetch('/index.html', { method: 'HEAD', cache: 'no-cache' })
+            .then(res => {
+                const etag = res.headers.get('ETag') || res.headers.get('Last-Modified') || res.headers.get('Date');
+                if (lastETag && lastETag !== etag) {
+                    window.location.reload();
+                }
+                lastETag = etag;
+            })
+            .catch(() => {});
+    }, 1000);
 });
 
 

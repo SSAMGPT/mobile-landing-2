@@ -12,13 +12,210 @@
     <div id="app">
         <!-- Hero Section -->
         <header class="hero">
-            <h1>부모님 상조, 아직이라면?<br>시작은 월 1,000원</h1>
+            <h1>월 1,000원으로 시작해,<br>616,000원까지 챙기는 상조</h1>
             <!-- 이미지와 3D 오브젝트를 묶어서 위치 고정 -->
             <div style="position: relative; width: 100%; max-width: 400px; margin: 0 auto;">
-                <img src="images/Change_phone_image_to_teddy_202607182248 1.png" alt="월 1,000원 혜택" class="hero-image" style="width: 100%; margin-top: 0;">
+                <!-- 메인 히어로 이미지 (소폭 축소하여 하단 폼 끌어올림) -->
+                <img src="images/Change_phone_image_to_teddy_202607182248 1.png" alt="월 1,000원 혜택" class="hero-image" style="width: 82%; margin: 0 auto; display: block;">
                 <!-- 3D Objects (초기 기준점: 이미지 정중앙) -->
                 <img src="images/obj1.png" id="obj1" class="floating-obj" alt="3D Object 1" style="top: 50%; left: 50%; margin-left: -50px;">
                 <img src="images/obj2.png" id="obj2" class="floating-obj" alt="3D Object 2" style="top: 50%; left: 50%; margin-left: -50px;">
+            </div>
+            
+            <!-- 쿠폰 마퀴 영역 -->
+            <div class="coupon-marquee-container">
+                <div class="coupon-marquee-row">
+                    <div class="coupon-marquee-content">
+                        <!-- 1. 메가커피 -->
+                        <div class="coupon-card yellow">
+                            <button class="coupon-download-btn" aria-label="쿠폰 다운로드">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            </button>
+                            <div class="coupon-icon-wrapper">
+                                <img src="images/mc.webp" class="coupon-icon" alt="Coupon Icon">
+                            </div>
+                            <div>
+                                <div class="coupon-title">메가커피 쿠폰</div>
+                                <div class="coupon-amount">5,000원</div>
+                            </div>
+                        </div>
+                        <!-- 2. 다이소 -->
+                        <div class="coupon-card red">
+                            <button class="coupon-download-btn" aria-label="쿠폰 다운로드">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            </button>
+                            <div class="coupon-icon-wrapper">
+                                <img src="images/daiso.png" class="coupon-icon" alt="Coupon Icon">
+                            </div>
+                            <div>
+                                <div class="coupon-title">다이소 쿠폰</div>
+                                <div class="coupon-amount">5,000원</div>
+                            </div>
+                        </div>
+                        <!-- 3. 파리바게뜨 -->
+                        <div class="coupon-card blue">
+                            <button class="coupon-download-btn" aria-label="쿠폰 다운로드">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            </button>
+                            <div class="coupon-icon-wrapper">
+                                <img src="images/pb.png" class="coupon-icon" alt="Coupon Icon">
+                            </div>
+                            <div>
+                                <div class="coupon-title">파리바게뜨 쿠폰</div>
+                                <div class="coupon-amount">5,000원</div>
+                            </div>
+                        </div>
+                        <!-- 뚜레쥬르 -->
+                        <div class="coupon-card green">
+                            <button class="coupon-download-btn" aria-label="쿠폰 다운로드">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            </button>
+                            <div class="coupon-icon-wrapper">
+                                <img src="images/TLJ.webp" class="coupon-icon" alt="Coupon Icon">
+                            </div>
+                            <div>
+                                <div class="coupon-title">뚜레쥬르 쿠폰</div>
+                                <div class="coupon-amount">5,000원</div>
+                            </div>
+                        </div>
+                        <!-- 이디야 커피 -->
+                        <div class="coupon-card navy">
+                            <button class="coupon-download-btn" aria-label="쿠폰 다운로드">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            </button>
+                            <div class="coupon-icon-wrapper">
+                                <img src="images/ediya.jpeg" class="coupon-icon" alt="Coupon Icon">
+                            </div>
+                            <div>
+                                <div class="coupon-title">이디야 쿠폰</div>
+                                <div class="coupon-amount">5,000원</div>
+                            </div>
+                        </div>
+                        <!-- CU -->
+                        <div class="coupon-card purple">
+                            <button class="coupon-download-btn" aria-label="쿠폰 다운로드">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            </button>
+                            <div class="coupon-icon-wrapper">
+                                <img src="images/cu.jpg" class="coupon-icon" alt="Coupon Icon">
+                            </div>
+                            <div>
+                                <div class="coupon-title">CU 쿠폰</div>
+                                <div class="coupon-amount">5,000원</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 무한 스크롤 효과용 복제 세트 (동일한 4개 카드 복제) -->
+                    <div class="coupon-marquee-content" aria-hidden="true">
+                        <!-- 1. 메가커피 -->
+                        <div class="coupon-card yellow">
+                            <button class="coupon-download-btn" aria-label="쿠폰 다운로드">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            </button>
+                            <div class="coupon-icon-wrapper">
+                                <img src="images/mc.webp" class="coupon-icon" alt="Coupon Icon">
+                            </div>
+                            <div>
+                                <div class="coupon-title">메가커피 쿠폰</div>
+                                <div class="coupon-amount">5,000원</div>
+                            </div>
+                        </div>
+                        <!-- 2. 다이소 -->
+                        <div class="coupon-card red">
+                            <button class="coupon-download-btn" aria-label="쿠폰 다운로드">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            </button>
+                            <div class="coupon-icon-wrapper">
+                                <img src="images/daiso.png" class="coupon-icon" alt="Coupon Icon">
+                            </div>
+                            <div>
+                                <div class="coupon-title">다이소 쿠폰</div>
+                                <div class="coupon-amount">5,000원</div>
+                            </div>
+                        </div>
+                        <!-- 3. 파리바게뜨 -->
+                        <div class="coupon-card blue">
+                            <button class="coupon-download-btn" aria-label="쿠폰 다운로드">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            </button>
+                            <div class="coupon-icon-wrapper">
+                                <img src="images/pb.png" class="coupon-icon" alt="Coupon Icon">
+                            </div>
+                            <div>
+                                <div class="coupon-title">파리바게뜨 쿠폰</div>
+                                <div class="coupon-amount">5,000원</div>
+                            </div>
+                        </div>
+                        <!-- 뚜레쥬르 -->
+                        <div class="coupon-card green">
+                            <button class="coupon-download-btn" aria-label="쿠폰 다운로드">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            </button>
+                            <div class="coupon-icon-wrapper">
+                                <img src="images/TLJ.webp" class="coupon-icon" alt="Coupon Icon">
+                            </div>
+                            <div>
+                                <div class="coupon-title">뚜레쥬르 쿠폰</div>
+                                <div class="coupon-amount">5,000원</div>
+                            </div>
+                        </div>
+                        <!-- 이디야 커피 -->
+                        <div class="coupon-card navy">
+                            <button class="coupon-download-btn" aria-label="쿠폰 다운로드">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            </button>
+                            <div class="coupon-icon-wrapper">
+                                <img src="images/ediya.jpeg" class="coupon-icon" alt="Coupon Icon">
+                            </div>
+                            <div>
+                                <div class="coupon-title">이디야 쿠폰</div>
+                                <div class="coupon-amount">5,000원</div>
+                            </div>
+                        </div>
+                        <!-- CU -->
+                        <div class="coupon-card purple">
+                            <button class="coupon-download-btn" aria-label="쿠폰 다운로드">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            </button>
+                            <div class="coupon-icon-wrapper">
+                                <img src="images/cu.jpg" class="coupon-icon" alt="Coupon Icon">
+                            </div>
+                            <div>
+                                <div class="coupon-title">CU 쿠폰</div>
+                                <div class="coupon-amount">5,000원</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 대형 오로라 쿠폰 입력 폼 프레임 -->
+            <div class="coupon-form-frame">
+                <div class="coupon-form-inner">
+                    <h3 class="form-frame-title">AI 상담원 소복이에게 혜택 받아보세요.</h3>
+                    
+                    <form class="form-frame-inputs">
+                        <!-- 한 줄(Row) 배치로 휴대폰 번호 입력창과 약관 동의 결합 -->
+                        <div class="form-frame-row">
+                            <input type="tel" placeholder="휴대폰 번호를 입력해주세요" class="frame-input" required>
+                            
+                            <div class="frame-agreement">
+                                <label class="agreement-label">
+                                    <input type="checkbox" class="frame-checkbox" required checked>
+                                    <span class="agreement-text">동의 (필수)</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="frame-submit-btn">소복이와 통화하고 혜택받기</button>
+                    </form>
+                    
+                    <!-- 각주 영역 -->
+                    <div class="form-frame-footnote">
+                        <span class="footnote-badge">안심</span>
+                        <span class="footnote-text">지금 바로 전화가 와요 • 부담 없이 끊어도 돼요</span>
+                    </div>
+                </div>
             </div>
             
             <!-- 소노 멤버십 마퀴 영역 -->
@@ -54,11 +251,6 @@
 
             <!-- 하단 수직 버튼 영역 -->
             <div class="cta-buttons-vertical">
-                <button class="btn btn-primary" id="call-btn">
-                    <div class="tooltip-bubble">3,000원 프로모션 진행중</div>
-                    AI 소복이에게 전화받기
-                </button>
-                <button class="btn btn-secondary">시작하기</button>
                 <div class="scroll-arrows" style="margin-top: 24px; margin-bottom: -10px;">
                     <span></span>
                     <span></span>
@@ -236,7 +428,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 
     <!-- 팝업 모달 양식 -->
