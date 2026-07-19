@@ -1956,7 +1956,7 @@ a[href^="tel"] {
     background: #008AFF; /* 퍼플 그라데이션 대신 '월 1,000원의 시작' 프레임의 블루 컬러 적용 */
     color: #ffffff;
     font-family: 'NanumSquareNeoExtraBold', sans-serif;
-    font-size: 13px; /* 글씨 크기 11.5px에서 13px로 확대 */
+    font-size: 14.5px; /* 글씨 크기 13px에서 14.5px로 추가 확대 */
     font-weight: 800;
     box-shadow: 0 4px 12px rgba(0, 138, 255, 0.35); /* 그림자 반경과 선명도도 시원하게 확장 */
     cursor: pointer;
